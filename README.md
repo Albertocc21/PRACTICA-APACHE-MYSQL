@@ -21,15 +21,15 @@ Como podemos observar a cada máquina se le da un nombre, una dirección de red 
 
 Este script primero actualiza los repositorios y luego instala los componentes necesarios para un servidor web LAMP:
 
-Apache: Servidor web que permitirá servir las páginas de la aplicación.
+<b>Apache:</b> Servidor web que permitirá servir las páginas de la aplicación.
 
-PHP: Lenguaje de programación que se ejecuta en el servidor y permite crear aplicaciones web dinámicas.
+<b>PHP:</b> Lenguaje de programación que se ejecuta en el servidor y permite crear aplicaciones web dinámicas.
 
-Módulo PHP-MySQL: Permite que PHP se comunique con MySQL.
+<b>Módulo PHP-MySQL:</b> Permite que PHP se comunique con MySQL.
 
-Git: Para clonar el repositorio que contiene la aplicación web.
+<b>Git:</b> Para clonar el repositorio que contiene la aplicación web.
 
-Net-Tools: Herramientas de red adicionales.
+<b>Net-Tools:</b> Herramientas de red adicionales.
 
 Utilizamos Git para descargar el código de la aplicación de un repositorio público en GitHub, el cuál colocaremos en el directorio /var/www/practica1.
 
@@ -39,11 +39,11 @@ Vamos al directorio de los sitios disponibles de Apache, copiamos el fichero por
 
 Para permitir que la aplicación PHP se conecte a la base de datos MySQL, el script crea un archivo config.php que contiene:
 
-DB_HOST: La dirección IP del servidor MySQL.
+<b>DB_HOST:</b> La dirección IP del servidor MySQL.
 
-DB_NAME: El nombre de la base de datos.
+<b>DB_NAME:</b> El nombre de la base de datos.
 
-DB_USER y DB_PASSWORD: Nombre de usuario y contraseña de MySQL.
+<b>DB_USER y DB_PASSWORD:</b> Nombre de usuario y contraseña de MySQL.
 
 Y por último vuelve a reiniciar Apache.
 
@@ -64,8 +64,10 @@ Se loguea como root, importa la estructura y los datos de la base de datos y lue
 
 Para que el servidor MySQL pueda ser accedido desde la otra máquina en la red, el script modifica la configuración de MySQL, cambiando el bind-address para permitir conexiones desde una dirección IP específica (192.168.20.35 en este caso).
 
-Iniciamos la máquina y nos metemos a la máquina de MySQL por ssh y eliminamos la siguiente línea destacada del fichero /etc/mysql/mysql.conf.d/mysqld.cnf:
+Iniciamos la máquina y nos metemos a la máquina de MySQL por ssh y eliminamos la siguiente línea destacada del fichero <b>/etc/mysql/mysql.conf.d/mysqld.cnf:</b>
 
 ![image](https://github.com/user-attachments/assets/5facc9a9-53de-4f7e-8b0c-a08b9b153a06)
+
+Y por último aplicamos el comando <b>sudo ip route del default</b> para quitarle la puerta de enlace y así no tener acceso a internet.
 
 Y ya estaría montada nuestra estructura, solo quedaría probar que todo funciona correctamente.
