@@ -7,7 +7,6 @@ sudo service mysql start
 
 git clone https://github.com/josejuansanchez/iaw-practica-lamp.git
 
-sudo systemctl restart mysql
 
 
 sudo su
