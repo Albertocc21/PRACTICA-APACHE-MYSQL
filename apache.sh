@@ -8,7 +8,12 @@ sudo mv /var/www/practica1/src/* /var/www/practica1
 sudo chown -R www-data.www-data /var/www/practica1
 sudo chmod 755 /var/www/practica1
 
-
+cd /etc/apache2/sites-avaialble
+sudo cp 000-default.conf practica1.conf
+sed -i 's/DocumentRoot /var/www/html/DocumentRoot /var/www/practica1/' /etc/apache2/sites-available/practica1.conf
+sudo a2ensite practica1.conf
+sudo a2dissite 000-default.conf
+sudo systemctl restart apache2
 
 cat <<EOL > /var/www/practica1/config.php
 <?php
@@ -22,5 +27,4 @@ define('DB_PASSWORD', '1234');
 ?>
 EOL
 
-sudo systemctl enable apache2
 sudo systemctl restart apache2
